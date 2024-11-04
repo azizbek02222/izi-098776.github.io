@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Черный металл</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="капсула">
+        <div class="шапка">
+            <ul class="навбар">
+                <li style="border-right: 1px solid black;" class="li">Контакты</li>
+                <li style="border-right: 1px solid black;" class="li">О нас</li>
+                <li style="border-right: 1px solid black;" class="li">Оплата</li>
+                <li style="border-right: 1px solid black;" class="li">Доставка</li>
+                <li style="border-right: 1px solid black;" class="li">Гарантия</li>
+                <li class="li">Продавцам</li>
+                <li style="border-right: 1px solid black;margin-left: 350px;" class="li">Регистрация</li>
+                <li class="li">Вход</li>
+            </ul>
+        </div>
+        <div style="display: flex;">
+            <div class="panel">
+                <div style="border: 1px solid grey;margin-bottom: 10px;margin: 10px;padding-right: 30px;"><ul>
+                    <li>Товары</li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Электроника</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Компьютеры</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Бытовая техника</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Красота и Здоровье</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Одежда и Аксессуары</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Детские товары</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Спорт и Отдых</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Автотовары</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Дом Сад Ремонт</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Посуда</a></li>
+                    <li style="border-top: 1px solid grey; padding: 10px;font-size: 12px;"><a style="text-decoration: none; color:black" href="">Книги</a></li>
+                </ul>
+            </div>
+            <div>
+                <div style="padding: 10px; border: 1px solid grey;margin: 10px;padding-left: 20px;">
+                    <p style="font-size: 12px;margin: auto;margin-left: 15px;">Подписаться на рассылку</p>
+                <input style="width: 160px;margin-top:5px;" type="text"><br>
+                <button style="margin-left: 35px;margin-top:5px;font-size: 12px;">Подписаться</button>
+                </div>
+                <div>
+                    <header style="width: 150px; margin: auto; border-radius: 30px;">
+                       <nav>
+                           <a href="#cart" id="cart-toggle">Корзина (<span id="cart-count">0</span>)</a>
+                       </nav>
+                   </header>
+                   
+                </div>
+                <div id="cart" class="cart">
+                    <h5>Корзина</h5>
+                    <div id="cart-items"></div>
+                    <button class="add-to-cart" id="checkout-button">Купить</button>
+                </div>
+                  <div class="modal" id="payment-modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <h2>Метод оплаты</h2>
+                        <div>
+                            <button class="payment-button" onclick="selectPaymentMethod('elcart')">Элкарт</button>
+                            <button class="payment-button" onclick="selectPaymentMethod('mbank')">Мбанк</button>
+                            <button class="payment-button" onclick="selectPaymentMethod('visa')">VISA</button>
+                            <button class="payment-button" onclick="selectPaymentMethod('mir')">Мир</button>
+                        </div>
+                        <div id="payment-fields" style="display: none;">
+                            <input type="text" id="card-number" placeholder="Счет карты или номер телефона" required>
+                            <input type="text" id="expiry-date" placeholder="Срок годности (ММ/ГГ)" required>
+                            <input type="text" id="ccv" placeholder="CCV" required>
+                            <button type="button" onclick="validateForm()">Подтвердить</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                <div>
+                </div>
+            </div>
+            <div class="int">
+              <div style="width: 600px;display: flex;">
+
+                <div id="carouselExampleIndicators" class="carousel slide">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="corusel.jpg" class="d-block w-80" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="corusel2.jpg" class="d-block w-80" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="corusel3.png" class="d-block w-80" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="corusel4.jpg" class="d-block w-80" alt="...">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <div style="width: 300px;font-size: 14px;list-style-type: none;margin-left: 10px;">
+                  <div style="border: 1px solid grey;padding-right: 30px;">
+                    <ul>
+                      <li style="padding-top: 5px; ">+996773969618</li>
+                      <li style="padding-top: 5px; ">+996704969618</li>                  
+                      <li style="padding-top: 5px; ">+996550969618</li>
+                      <li style="padding-top: 5px; ">
+                        <img width="20px" src="whatsapp.png" alt="">+996704969187
+                      </li>
+                      <li style="padding-top: 5px;font-size: 10px;display: flex; "><img width="20px" src="gmail.png" alt="">ziabidinovaza@gmail.com</li>
+                      <li></li>
+                    </ul>
+                  </div><br><br><br>
+                  <div style="padding-left: 20px;border: 1px solid grey;margin-top: -35px;">
+                    <li>Новости</li>
+                    <li><a style="text-decoration: none; color: black;font-size: 10px;" href="">График работы в праздничные дни 2024 г.</a></li>
+                    <li><a style="text-decoration: none; color: black;font-size: 10px;" href="">График работы 4-8 ноября 2024</a></li>
+                  </div>
+                </div>
+            </div><br>
+            <div>
+            
+              <main>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                  <img style="margin-left: 30px;" src="img.jpg" alt="Samsung Galaxy S24">
+                  <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6> 
+                  <p class="old-price">66390 сом</p>
+                  <p class="new-price">64600 сом</p>
+                  <button class="add-to-cart">Добавить в корзину</button>
+              </div>
+              <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                <img style="margin-left: 30px;" src="img2.jpg" alt="Samsung Galaxy S24">
+                <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                <p class="old-price">66390 сом</p>
+                <p class="new-price">64600 сом</p>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                <img style="margin-left: 30px;" src="img3.jpg" alt="Samsung Galaxy S24">
+                <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                <p class="old-price">66390 сом</p>
+                <p class="new-price">64600 сом</p>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                <img style="margin-left: 30px;" src="img4.jpg" alt="Samsung Galaxy S24">
+                <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                <p class="old-price">66390 сом</p>
+                <p class="new-price">64600 сом</p>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            </div>
+            <div class="img">
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="byt.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="byt2.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="byt3.png" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="byt4.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+              </div>
+            
+
+
+
+
+            <div class="img">
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="watch.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="watch2.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="watch3.png" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="watch4.png" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+            </div>
+            
+
+
+            <div class="img">
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="gadjet.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="gadjet2.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 30px; margin-bottom: 10px; width: 80px;" src="gadjet3.png" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                    <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                        <img style="margin-left: 10px;margin-bottom: 30px;" src="gadjet4.jpg" alt="Samsung Galaxy S24">
+                        <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                        <p class="old-price">66390 сом</p>
+                        <p class="new-price">64600 сом</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+        
+
+
+            <div class="img">
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="laptop.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 30px;width: 80px;margin-bottom: 20px;" src="laptop2.png" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="laptop3.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="laptop4.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+            </div>
+          
+
+
+
+            <div class="img">
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="metr.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="metr2.png" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 10px;" src="metr3.jpg" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+                <div class="product" data-name="Сотовый телефон Samsung Galaxy S24" data-price="64600">
+                    <img style="margin-left: 45px;" src="metr4.png" alt="Samsung Galaxy S24">
+                    <h6>Сотовый телефон Samsung Galaxy S24 8/256GB серый</h6>
+                    <p class="old-price">66390 сом</p>
+                    <p class="new-price">64600 сом</p>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                </div>
+            </main>
+          
+
+            
+          </div>
+
+
+
+          
+          </div>
+        
+<div>
+  <p style="font-size: 17px;margin-left: 50px;">KIVANO.KG в Кыргызстане. У нас Вы найдете более 50 000 товаров по лучшим ценам. Экспресс доставка за 120 минут.</p>
+  <p style="padding: 20px;">Интернет магазин KIVANO.KG – маркетплейс с десятками тысяч товаров для жизни, которые можно купить в Бишкеке, а также c доставкой по Кыргызстану (Ош, Баткен, Джалал-Абад, Каракол, Талас, Нарын) и заграницу (Россия и Казахстан) по низким ценам, либо в кредит (рассрочка). Цены на товары такие же и даже дешевле, чем в магазинах города (ЦУМ, ГУМ и т.п.) или на рынке Дордой. Вы можете ознакомится с обзорами на товар и их характеристиками. Сегодня в нашем интернет-магазине более 50 000 товаров в 400 товарных категориях: сотовые телефоны (Apple iPhone, Xiaomi, Samsung и многие другие) и планшеты, бытовая техника, компьютеры и ноутбуки, товары для красоты и здоровья, парфюмерия, товары для спорта и отдыха, подарки, детские товары, посуда, товары для дома и книги. Своим покупателям мы предоставляем возможность оплатить товар 14 способами. Также с радостью ответим на все возникнувшие вопросы.</p>
+</div>
+        </div>
+    </div>
+
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    
+    </script>
+     <script src="script.js" defer></script>
+</body>
+</html>
